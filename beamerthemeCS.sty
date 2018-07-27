@@ -1,0 +1,70 @@
+\mode<presentation>
+
+% Gestion des couleurs
+
+\usepackage{xcolor}
+
+\newcommand{\green}[1]{\textcolor{ForestGreen}{#1}}
+\newcommand{\orange}[1]{\textcolor{OrangeRed}{#1}}
+\newcommand{\blue}[1]{\textcolor{Blue}{#1}}
+
+\definecolor{csred}{RGB}{176,10,58}
+\definecolor{cspurple}{RGB}{125,99,142}
+\newcommand{\red}[1]{\textcolor{csred}{#1}}
+\newcommand{\purple}[1]{\textcolor{cspurple}{#1}}
+
+\setbeamercolor{barhead}{bg=csred}
+\setbeamercolor{barfoot}{bg=cspurple}
+
+\setbeamercolor{title}{fg=white,bg=cspurple}
+\setbeamercolor{frametitle}{fg=cspurple}
+\setbeamercolor{structure}{fg=black}
+
+%ajout vvtt 
+\setbeamercolor{block title}{bg=white,fg=cspurple!80!gray}
+%fin ajout 
+
+\setbeamercolor{block title alerted}{use=alerted text,fg=csred,bg=alerted text.fg!25!bg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!25!bg}
+
+\setbeamercolor{item projected}{fg=white,bg=cspurple}
+\setbeamercolor{subitem projected}{bg=black!60}
+
+% Gestion de la mise en page
+\useinnertheme[shadow=true]{rounded}
+
+\mode<presentation>{\setbeamertemplate{navigation symbols}{}}
+
+\defbeamertemplate*{headline}{}{
+  \begin{tabular}{p{0.05\textwidth} @{} p{0.95\textwidth}}
+    \includegraphics[width=0.05\paperwidth]{./CS_logo_sans_text.pdf} &
+    \raisebox{2.5ex}{\begin{beamercolorbox}[wd=\paperwidth]{}%
+      \begin{tabular}{l}
+        \insertsectionnavigationhorizontal{0.5\textwidth}{}{\hskip0pt plus1filll}\\[0.5ex]
+        \insertsubsectionnavigationhorizontal{0.5\textwidth}{}{\hskip0pt plus1filll}
+      \end{tabular}
+    \end{beamercolorbox}}
+  \end{tabular}
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.2ex,dp=0.2ex]{barhead}\end{beamercolorbox}
+}
+
+\setbeamertemplate{frametitle}{
+  \hspace{-3ex}\large \insertframetitle
+}
+
+\defbeamertemplate*{footline}{}{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.2ex,dp=0.2ex]{barfoot}\end{beamercolorbox}
+  \begin{beamercolorbox}[wd=0.98\paperwidth,ht=2.5ex,dp=1.25ex,leftskip=0.025\paperwidth]{}%
+    \insertshortdate \hfill \insertshorttitle \hfill \insertshortauthor \hfill \insertframenumber$/$\inserttotalframenumber
+  \end{beamercolorbox}
+}
+
+% Gestion de la table des matières
+\AtBeginSection[]{
+  \begin{frame}<beamer>
+    \frametitle{Plan}
+    \tableofcontents[currentsection,currentsubsection,sectionstyle=show/shaded, subsectionstyle=show/show/hide]
+  \end{frame}
+}
+
+\mode<all>
